@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: "Lato", sans-serif;    
+    font-size: 13px;
+}
+
+ul{
+    list-style: none;
+}
+
 
 /* regole background */
 #bckgrnd-top{
@@ -29,17 +38,109 @@
     display: flex;
 }
 
-/* regole lista contatti */
+/* REGOLE LISTA CONTATTI */
 #contact-list{
-    width: 30%;
+    width: 35%;
     height: 100%;
-    /* debug */
-    background-color: blue;
+    background-color: white;
 }
 
+/* REGOLE CHAT */
 #chat{
-    width: 70%;
+    width: 65%;
     height: 100%;
     /* debug */
     background-color: blueviolet;
 }
+
+    /* regole container utente principale in alto alla pagina */
+.card.main-user-container{
+    height: 60px;
+    padding: 10px 10px;
+    /* debug */
+    background-color: #eaeaea;
+}
+
+
+/* REGOLE CARD */
+.card{
+    padding: 10px 20px;
+    color: rgb(185, 185, 185);
+    display: flex;
+}
+
+
+.circle-img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.circle-img i{
+    font-size: 20px;
+    margin: 14px;
+    color: #8edafc;
+}
+
+
+
+.txt-left{
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+
+.txt-right{
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+
+.txt-right span{
+    width: 100%;
+    text-align: right;
+}
+
+
+    /* regole testo */
+.text{
+    margin-left: 10px;
+}
+
+.text h4{
+    color: black;
+}
+
+ul .card h4{
+    font-size: 17px;
+}
+
+    /* regole icone */
+.icons{
+    justify-content: flex-end;
+    font-size: 20px;
+}
+
+.icons i{
+    margin: 0 7px;
+}
+
+    /* card "speciali" */
+#notifications{
+    background-color: #8edafc;
+}
+
+#notifications span{
+    color: gray;
+    text-decoration: underline;
+}
+
+
+#contact-list input{
+    margin: 5px;
+    width: 97.7%;
+}
+
+
+
