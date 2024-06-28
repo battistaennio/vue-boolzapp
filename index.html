@@ -68,8 +68,8 @@
             </div>
 
             <ul>
-                <li v-for="(person, index) in contacts" :key="person">
-                    <div class="card">
+                <li v-for="(person, index) in contacts" :key="person" @click="activeChat = index">
+                    <div class="card person">
 
                         <div class="txt-left">
                             <div class="circle-img">
@@ -99,11 +99,11 @@
 
                 <div class="txt-left">
                     <div class="circle-img">
-                        <img src="" alt="">
+                        <img :src="contacts[activeChat].avatar" alt="">
                     </div>
 
                     <div class="text">
-                        <h4>Nome utente chat</h4>
+                        <h4>{{contacts[activeChat].name}}</h4>
                         <span>Ultimo accesso</span>
                     </div>
                 </div>
@@ -118,12 +118,9 @@
 
             <div id="messages">
 
-                <div class="mssg-sent">
-
-                </div>
-
-                <div class="mssg-received">
-
+                <div v-for="(chat, indice) in contacts[activeChat].messages" :class="chat.status === 'sent' ? 'mssg-sent' : 'mssg-received'">
+                    <span> {{ chat.message }} </span>
+                    <span class="hour">12.12</span>
                 </div>
 
             </div>
