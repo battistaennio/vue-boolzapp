@@ -11,6 +11,8 @@ body{
 
 ul{
     list-style: none;
+    overflow-y: auto;
+    height: 77%;
 }
 
 
@@ -41,8 +43,9 @@ ul{
 /* REGOLE LISTA CONTATTI */
 #contact-list{
     width: 35%;
-    height: 100%;
+    height: 95vh;
     background-color: white;
+    overflow: hidden;
 }
 
 /* REGOLE CHAT */
@@ -77,13 +80,17 @@ ul{
     background-color: white;
 }
 
+.circle-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
 .circle-img i{
     font-size: 20px;
     margin: 14px;
     color: #8edafc;
 }
-
-
 
 .txt-left{
     display: flex;
@@ -136,11 +143,80 @@ ul .card h4{
     text-decoration: underline;
 }
 
+    /* barra di ricerca chat */
+#search-input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: #fafafa;
 
-#contact-list input{
-    margin: 5px;
-    width: 97.7%;
 }
 
+#search-input i{
+    color: gray;
+    margin-left: 2.5%;
+}
+
+#search-input input{
+    margin: 5px;
+    width: 90%;
+    height: 30px;
+    padding: 0 10px;
+    border: none;
+}
+
+/* REGOLE SEZIONE CHAT */
+#messages{
+    height: calc(100% - 120px);
+    background-image: url("https://cdn.wallpapersafari.com/68/67/U1SFl7.jpg");
+    display: flex;
+    flex-direction: column;
+}
+
+#write-message{
+    height: 60px;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f3eeea;
+
+}
+
+#write-message i{
+    font-size: 25px;
+    color: #6d7b8c;
+}
+
+#write-message input{
+    width: 90%;
+    height: 80%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+    /* regole box messaggi */
+.mssg-sent{
+    background-color: #d5f9ba;
+    min-height: 60px;
+    width: 35%;
+    border-radius: 10px;
+    padding-top: 10px;
+    align-self: self-end;
+    margin: 20px;
+    padding: 10px;
+}
+
+.mssg-received{
+    background-color: #ffffff;
+    min-height: 60px;
+    width: 35%;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+
+}
 
 

@@ -31,7 +31,7 @@
 
                 <div class="txt-left">
                     <div class="circle-img">
-
+                        <img src="img/Pablo.jpg" alt="User profile pic">
                     </div>
 
                     <div class="text">
@@ -62,20 +62,22 @@
                 
             </div>
 
-
-            <input type="text">
+            <div id="search-input">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Cerca o inizia una nuova chat">
+            </div>
 
             <ul>
-                <li>
+                <li v-for="(person, index) in contacts" :key="person">
                     <div class="card">
 
                         <div class="txt-left">
                             <div class="circle-img">
-
+                                <img :src="person.avatar" :alt="person.name">
                             </div>
 
                             <div class="text">
-                                <h4>Nome</h4>
+                                <h4>{{person.name}}</h4>
                                 <span>Ultimo messaggio inviato</span>
                             </div>
                         </div>
@@ -92,6 +94,47 @@
 
         <!-- container chat -->
         <div id="chat">
+            <!-- utente chat -->
+            <div class="card main-user-container">
+
+                <div class="txt-left">
+                    <div class="circle-img">
+                        <img src="" alt="">
+                    </div>
+
+                    <div class="text">
+                        <h4>Nome utente chat</h4>
+                        <span>Ultimo accesso</span>
+                    </div>
+                </div>
+
+                <div class="icons txt-right">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-paperclip"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+
+            </div>
+
+            <div id="messages">
+
+                <div class="mssg-sent">
+
+                </div>
+
+                <div class="mssg-received">
+
+                </div>
+
+            </div>
+
+            <div id="write-message">
+                <i class="fa-regular fa-face-smile"></i>
+
+                <input type="text" placeholder="Scrivi un messaggio">
+
+                <i class="fa-solid fa-microphone"></i>
+            </div>
 
         </div>
 
