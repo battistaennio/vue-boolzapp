@@ -4,3 +4,42 @@
     box-sizing: border-box;
 }
 
+
+/* regole background */
+#bckgrnd-top{
+    width: 100vw;
+    height: 20vh;
+    background-color: #009688;
+}
+
+#bckgrnd-bottom{
+    width: 100vw;
+    height: 80vh;
+    background-color: #d6dbd6;
+}
+
+#container{
+    position: fixed;
+    z-index: 900;
+    top: 0;
+    left: 10%;
+    margin: 2.5vh auto;
+    height: 95vh;
+    width: 80%;
+    display: flex;
+}
+
+/* regole lista contatti */
+#contact-list{
+    width: 30%;
+    height: 100%;
+    /* debug */
+    background-color: blue;
+}
+
+#chat{
+    width: 70%;
+    height: 100%;
+    /* debug */
+    background-color: blueviolet;
+}
