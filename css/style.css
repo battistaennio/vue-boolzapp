@@ -73,9 +73,16 @@ ul{
 }
 
 .card.person{
-    margin: 1px 0;
     cursor: pointer;
     border-bottom: 1px solid lightgray;
+}
+
+.card.person:hover{
+    background-color: #eaeaea;
+}
+
+.active-chat{
+    background-color: #eaeaea;
 }
 
 .circle-img{
