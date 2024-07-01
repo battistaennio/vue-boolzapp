@@ -107,13 +107,13 @@ ul{
 .txt-left{
     display: flex;
     align-items: center;
-    width: 70%;
+    width: 80%;
 }
 
 .txt-right{
     display: flex;
     align-items: center;
-    width: 30%;
+    width: 20%;
 }
 
 .txt-right span{

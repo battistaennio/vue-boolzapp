@@ -175,8 +175,6 @@ createApp({
             newMessage : "",
             searchChatInput: "",
             searchArray: [],
-            autoResponse: [],
-
         }
     },
 
@@ -231,7 +229,11 @@ createApp({
             .catch(errore => {
                 console.error("Errore nel recuperare il messaggio casuale:", errore);
             });
+        },
 
+        //funzione per anteprima ultimo messaggio
+        lastMessage(person) {
+            return person.messages[person.messages.length - 1].message;
         },
 
     },
