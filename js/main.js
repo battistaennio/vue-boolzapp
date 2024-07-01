@@ -173,6 +173,8 @@ createApp({
 
             activeChat: 0,
             newMessage : "",
+            searchChatInput: "",
+            searchArray: [],
 
         }
     },
@@ -187,10 +189,27 @@ createApp({
             //dopo 1 sec ricevo risposta automatica
             setTimeout(this.contacts[this.activeChat].messages.push({message: "Ok", status: "received"}), 1000);
         },
+
+        //funzione cerca chat
+        searchChat() {
+            //forzo la lettura dell'input in modo che sia in caratteri minuscoli
+            const inputLowerCase = this.searchChatInput.toLowerCase();
+            //attraverso filter seleziono solo i nomi che contengono le lettere scritte nell'input
+            this.searchArray = this.contacts.filter(person => person.name.toLowerCase().includes(inputLowerCase));
+        },
+
+        //funzione visualizza chat
+        setActiveChat(index) {
+            //recupero il contatto filtrato
+            const person = this.searchArray[index];
+            //imposto tramite indexOf che activeChat sia uguale all'indice del contatto filtrato
+            this.activeChat = this.contacts.indexOf(person);
+        }
+
     },
 
     mounted() {
-
+        this.searchArray = this.contacts;
     }
 
 

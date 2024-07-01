@@ -64,11 +64,11 @@
 
             <div id="search-input">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchChatInput" @input="searchChat()">
             </div>
 
             <ul>
-                <li v-for="(person, index) in contacts" :key="person" @click="activeChat = index">
+                <li v-for="(person, index) in searchArray" :key="person" @click="setActiveChat(index)">
                     <div class="card person">
 
                         <div class="txt-left">
