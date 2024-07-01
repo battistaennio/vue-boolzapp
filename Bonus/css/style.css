@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Lato", sans-serif;    
+    font-size: 13px;
+}
+
+ul{
+    list-style: none;
+    overflow-y: auto;
+    height: calc(100% - 180px);
+}
+
+
+/* regole background */
+#bckgrnd-top{
+    width: 100vw;
+    height: 20vh;
+    background-color: #009688;
+}
+
+#bckgrnd-bottom{
+    width: 100vw;
+    height: 80vh;
+    background-color: #d6dbd6;
+}
+
+#container{
+    position: fixed;
+    z-index: 900;
+    top: 0;
+    left: 10%;
+    margin: 2.5vh auto;
+    height: 95vh;
+    width: 80%;
+    display: flex;
+}
+
+/* REGOLE LISTA CONTATTI */
+#contact-list{
+    width: 35%;
+    height: 95vh;
+    background-color: white;
+    overflow: hidden;
+}
+
+/* REGOLE CHAT */
+#chat{
+    width: 65%;
+    height: 100%;
+    /* debug */
+    background-color: blueviolet;
+}
+
+    /* regole container utente principale in alto alla pagina */
+.card.main-user-container{
+    height: 60px;
+    padding: 10px 10px;
+    /* debug */
+    background-color: #eaeaea;
+}
+
+
+/* REGOLE CARD */
+.card{
+    padding: 10px 20px;
+    color: rgb(185, 185, 185);
+    display: flex;
+}
+
+.card.person{
+    cursor: pointer;
+    border-bottom: 1px solid lightgray;
+}
+
+.card.person:hover{
+    background-color: #eaeaea;
+}
+
+.active-chat{
+    background-color: #eaeaea;
+}
+
+.circle-img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.circle-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.circle-img i{
+    font-size: 20px;
+    margin: 14px;
+    color: #8edafc;
+}
+
+.txt-left{
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+
+.txt-right{
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+
+.txt-right span{
+    width: 100%;
+    text-align: right;
+}
+
+    /* regole testo */
+.text{
+    margin-left: 10px;
+}
+
+.text h4{
+    color: black;
+}
+
+ul .card h4{
+    font-size: 17px;
+}
+
+    /* regole icone */
+.icons{
+    justify-content: flex-end;
+    font-size: 20px;
+}
+
+.icons i{
+    margin: 0 7px;
+}
+
+    /* card "speciali" */
+#notifications{
+    background-color: #8edafc;
+}
+
+#notifications span{
+    color: gray;
+    text-decoration: underline;
+}
+
+    /* barra di ricerca chat */
+#search-input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: #fafafa;
+
+}
+
+#search-input i{
+    color: gray;
+    margin-left: 2.5%;
+}
+
+#search-input input{
+    margin: 5px;
+    width: 90%;
+    height: 30px;
+    padding: 0 10px;
+    border: none;
+}
+
+/* REGOLE SEZIONE CHAT */
+#messages{
+    height: calc(100% - 120px);
+    overflow-y: auto;
+    background-image: url("https://cdn.wallpapersafari.com/68/67/U1SFl7.jpg");
+    display: flex;
+    flex-direction: column;
+}
+
+#write-message{
+    height: 60px;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f3eeea;
+
+}
+
+#write-message i{
+    font-size: 25px;
+    color: #6d7b8c;
+}
+
+#write-message input{
+    width: 90%;
+    height: 80%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+    /* regole box messaggi */
+.mssg{
+    min-height: 60px;
+    width: 35%;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mssg-sent{
+    background-color: #d5f9ba;
+    align-self: self-end;
+}
+
+.mssg-received{
+    background-color: #ffffff;
+}
+
+.mssg .hour{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: gray;
+    font-size: 10px;
+}
+
+.mssg .dropdown{
+    color: gray;
+    display: none;
+    position: relative;
+    padding: 0px 10px;
+}
+
+.mssg:hover .dropdown{
+    display: inline-block;
+}
+
+.drpdwn-function{
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    text-align: center;
+    width: 130px;
+    padding: 5px;
+    background-color: white;
+    border: 2px solid #eaeaea;
+    cursor: pointer;
+    display: none;
+}
+
+.dropdown:hover .drpdwn-function{
+    display: inline-block;
+}
+
+
+
