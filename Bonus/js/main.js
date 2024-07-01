@@ -175,6 +175,7 @@ createApp({
             newMessage : "",
             searchChatInput: "",
             searchArray: [],
+            autoResponse: [],
 
         }
     },
@@ -186,9 +187,7 @@ createApp({
                 //pusho un nuovo oggetto nella chat selezionata 
                 this.contacts[this.activeChat].messages.push({message: this.newMessage, status: "sent"});
                 //dopo 1 sec ricevo risposta automatica
-                setTimeout(() => {
-                    this.contacts[this.activeChat].messages.push({message: "Ok", status: "received"});
-                }, 1000);
+                this.randomReply();
             }
             //svuoto il contenuto dell'input
             this.newMessage = "";
@@ -213,7 +212,27 @@ createApp({
         //funzione elimina messaggio
         deleteMessage(indiceChat, indiceMssg){
             this.contacts[indiceChat].messages.splice(indiceMssg, 1);
-        }
+        },
+
+        //funzione che recupera una frase random
+        randomReply() {
+            //recupero API
+            axios.get("https://flynn.boolean.careers/exercises/api/random/sentence")
+            .then(risposta => {
+                //dichiaro randomSentence = risposta api
+                const randomSentence = risposta.data.response;
+                //timer di 1 sec
+                setTimeout(() => {
+                    //pusho in array la frase con lo stato received
+                    this.contacts[this.activeChat].messages.push({ message: randomSentence, status: "received" });
+                }, 1000);
+            })
+            //in caso di errore
+            .catch(errore => {
+                console.error("Errore nel recuperare il messaggio casuale:", errore);
+            });
+
+        },
 
     },
 
