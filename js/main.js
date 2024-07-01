@@ -172,12 +172,19 @@ createApp({
             ],
 
             activeChat: 0,
+            newMessage : "",
 
         }
     },
 
     methods: {
-        
+        //funzione per inviare un nuovo messaggio
+        sendMessage() {
+            //pusho un nuovo oggetto nella chat selezionata 
+            this.contacts[this.activeChat].messages.push({message: this.newMessage, status: "sent"});
+            //svuoto il contenuto dell'input
+            this.newMessage = "";
+        }
     },
 
     mounted() {
