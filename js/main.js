@@ -184,7 +184,9 @@ createApp({
             this.contacts[this.activeChat].messages.push({message: this.newMessage, status: "sent"});
             //svuoto il contenuto dell'input
             this.newMessage = "";
-        }
+            //dopo 1 sec ricevo risposta automatica
+            setTimeout(this.contacts[this.activeChat].messages.push({message: "Ok", status: "received"}), 1000);
+        },
     },
 
     mounted() {
