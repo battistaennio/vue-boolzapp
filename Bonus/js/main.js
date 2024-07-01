@@ -182,14 +182,16 @@ createApp({
     methods: {
         //funzione per inviare un nuovo messaggio
         sendMessage() {
-            //pusho un nuovo oggetto nella chat selezionata 
-            this.contacts[this.activeChat].messages.push({message: this.newMessage, status: "sent"});
+            if (this.newMessage.length > 0) {
+                //pusho un nuovo oggetto nella chat selezionata 
+                this.contacts[this.activeChat].messages.push({message: this.newMessage, status: "sent"});
+                //dopo 1 sec ricevo risposta automatica
+                setTimeout(() => {
+                    this.contacts[this.activeChat].messages.push({message: "Ok", status: "received"});
+                }, 1000);
+            }
             //svuoto il contenuto dell'input
             this.newMessage = "";
-            //dopo 1 sec ricevo risposta automatica
-            setTimeout(() => {
-                this.contacts[this.activeChat].messages.push({message: "Ok", status: "received"});
-            }, 1000);
         },
 
         //funzione cerca chat
