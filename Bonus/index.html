@@ -15,6 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <!-- axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js" integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.5.0/build/global/luxon.min.js"></script>
     <!-- Vue 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- CSS -->
@@ -64,11 +66,13 @@
                 
             </div>
 
+            <!-- barra di ricerca chat -->
             <div id="search-input">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchChatInput" @input="searchChat()">
             </div>
 
+            <!-- lista chat -->
             <ul>
                 <li v-for="(person, index) in searchArray" :key="person" @click="setActiveChat(index)">
                     <div class="card person" :class="activeChat === contacts.indexOf(person) ?'active-chat' : ''">
@@ -85,7 +89,7 @@
                         </div>
 
                         <div class="txt-right">
-                            <span>12.00</span>
+                            <span>{{messageHour(person.messages[person.messages.length - 1].date)}}</span>
                         </div>
         
                     </div>
@@ -106,7 +110,7 @@
 
                     <div class="text">
                         <h4>{{contacts[activeChat].name}}</h4>
-                        <span>Ultimo accesso</span>
+                        <span>{{ lastAccess }}</span>
                     </div>
                 </div>
 
@@ -122,13 +126,13 @@
 
                 <div class="mssg" v-for="(chat, indice) in contacts[activeChat].messages" :class="chat.status === 'sent' ? 'mssg-sent' : 'mssg-received'">
                     <span> {{ chat.message }} </span>
-                    <span class="hour">12.12</span>
+                    <span class="hour">{{messageHour(chat.date)}}</span>
 
                     <div class="dropdown">
                         <i class="fa-solid fa-chevron-down"></i>
 
                         <div class="drpdwn-function">
-                            <span @click="deleteMessage(activeChat, indice)">Elimina Messaggio</span>
+                            <span @click="deleteMessage(activeChat, indice)">Elimina messaggio</span>
                         </div>
                     </div>
                 </div>

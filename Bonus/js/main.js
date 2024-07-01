@@ -1,6 +1,7 @@
 
 
 const { createApp } = Vue;
+const { DateTime } = luxon;
 
 createApp({
 
@@ -175,15 +176,17 @@ createApp({
             newMessage : "",
             searchChatInput: "",
             searchArray: [],
+            lastAccess: "",
         }
     },
 
     methods: {
         //funzione per inviare un nuovo messaggio
         sendMessage() {
+            const now = DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
             if (this.newMessage.length > 0) {
                 //pusho un nuovo oggetto nella chat selezionata 
-                this.contacts[this.activeChat].messages.push({message: this.newMessage, status: "sent"});
+                this.contacts[this.activeChat].messages.push({message: this.newMessage, status: "sent", date: now});
                 //dopo 1 sec ricevo risposta automatica
                 this.randomReply();
             }
@@ -214,15 +217,21 @@ createApp({
 
         //funzione che recupera una frase random
         randomReply() {
+            this.lastAccess = "sta scrivendo...";
             //recupero API
             axios.get("https://flynn.boolean.careers/exercises/api/random/sentence")
             .then(risposta => {
                 //dichiaro randomSentence = risposta api
                 const randomSentence = risposta.data.response;
+                const now = DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
                 //timer di 1 sec
                 setTimeout(() => {
                     //pusho in array la frase con lo stato received
-                    this.contacts[this.activeChat].messages.push({ message: randomSentence, status: "received" });
+                    this.contacts[this.activeChat].messages.push({ message: randomSentence, status: "received", date: now });
+                    this.lastAccess = "online";
+                    setTimeout(() => {
+                        this.lastAccess = `ultimo accesso alle ${DateTime.now().toFormat('HH:mm')}`;
+                    },2000)
                 }, 1000);
             })
             //in caso di errore
@@ -234,6 +243,11 @@ createApp({
         //funzione per anteprima ultimo messaggio
         lastMessage(person) {
             return person.messages[person.messages.length - 1].message;
+        },
+
+        //funzione ora invio ultimo messaggio
+        messageHour(dateTime) {
+            return dateTime.split(' ')[1].slice(0, 5);
         },
 
     },
