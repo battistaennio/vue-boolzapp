@@ -214,5 +214,4 @@ createApp({
         this.searchArray = this.contacts;
     }
 
-
 }).mount("#container")
