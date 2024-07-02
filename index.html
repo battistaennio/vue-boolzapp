@@ -29,7 +29,7 @@
             <!-- card Utente principale -->
             <div class="card main-user-container">
 
-                <div class="txt-left">
+                <div class="box-left">
                     <div class="circle-img">
                         <img src="img/Pablo.jpg" alt="User profile pic">
                     </div>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
 
-                <div class="icons txt-right">
+                <div class="icons box-right">
                     <i class="fa-solid fa-circle-notch"></i>
                     <i class="fa-solid fa-message"></i>
                     <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -49,14 +49,14 @@
 
             <!-- card alert notifiche -->
             <div id="notifications" class="card">
-                <div class="txt-left">
+                <div class="box-left">
                     <div class="circle-img">
                         <i class="fa-solid fa-bell-slash"></i>
                     </div>
 
                     <div class="text">
                         <h4>Ricevi notifiche di nuovi messaggi</h4>
-                        <span>Attiva notifiche desktop</span>
+                        <a href="#">Attiva notifiche desktop</a href="#">
                     </div>
                 </div>
                 
@@ -71,7 +71,7 @@
                 <li v-for="(person, index) in searchArray" :key="person" @click="setActiveChat(index)">
                     <div class="card person" :class="activeChat === contacts.indexOf(person) ?'active-chat' : ''">
 
-                        <div class="txt-left">
+                        <div class="box-left">
                             <div class="circle-img">
                                 <img :src="person.avatar" :alt="person.name">
                             </div>
@@ -82,7 +82,7 @@
                             </div>
                         </div>
 
-                        <div class="txt-right">
+                        <div class="box-right">
                             <span>12.00</span>
                         </div>
         
@@ -97,7 +97,7 @@
             <!-- utente chat -->
             <div class="card main-user-container">
 
-                <div class="txt-left">
+                <div class="box-left">
                     <div class="circle-img">
                         <img :src="contacts[activeChat].avatar" alt="">
                     </div>
@@ -108,7 +108,7 @@
                     </div>
                 </div>
 
-                <div class="icons txt-right">
+                <div class="icons box-right">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <i class="fa-solid fa-paperclip"></i>
                     <i class="fa-solid fa-ellipsis-vertical"></i>

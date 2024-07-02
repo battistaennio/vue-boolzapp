@@ -72,6 +72,10 @@ ul{
     display: flex;
 }
 
+.card i{
+    cursor: pointer;
+}
+
 .card.person{
     cursor: pointer;
     border-bottom: 1px solid lightgray;
@@ -104,19 +108,19 @@ ul{
     color: #8edafc;
 }
 
-.txt-left{
+.box-left{
     display: flex;
     align-items: center;
     width: 70%;
 }
 
-.txt-right{
+.box-right{
     display: flex;
     align-items: center;
     width: 30%;
 }
 
-.txt-right span{
+.box-right span{
     width: 100%;
     text-align: right;
 }
@@ -124,6 +128,10 @@ ul{
     /* regole testo */
 .text{
     margin-left: 10px;
+}
+
+.text a{
+    color: gray;
 }
 
 .text h4{
@@ -193,12 +201,12 @@ ul .card h4{
     justify-content: space-between;
     align-items: center;
     background-color: #f3eeea;
-
 }
 
 #write-message i{
     font-size: 25px;
     color: #6d7b8c;
+    cursor: pointer;
 }
 
 #write-message input{
