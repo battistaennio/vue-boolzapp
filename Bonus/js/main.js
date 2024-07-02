@@ -177,6 +177,7 @@ createApp({
             searchChatInput: "",
             searchArray: [],
             lastAccess: "",
+            dropdown: false,
         }
     },
 
@@ -242,6 +243,7 @@ createApp({
 
         //funzione per anteprima ultimo messaggio
         lastMessage(person) {
+            if (person.messages.length === 0) return "";
             return person.messages[person.messages.length - 1].message;
         },
 
@@ -249,6 +251,11 @@ createApp({
         messageHour(date) {
             return date.split(' ')[1].slice(0, 5);
         },
+
+        //funzione attiva/disattiva dropdown
+        showDropdown() {
+            this.dropdown = !this.dropdown;
+        }
 
     },
 

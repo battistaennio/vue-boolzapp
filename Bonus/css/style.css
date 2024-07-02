@@ -254,6 +254,7 @@ ul .card h4{
     display: none;
     position: relative;
     padding: 0px 5px;
+    cursor: pointer;
 }
 
 .mssg:hover .dropdown{
@@ -270,11 +271,6 @@ ul .card h4{
     background-color: white;
     border: 2px solid #eaeaea;
     cursor: pointer;
-    display: none;
-}
-
-.dropdown:hover .drpdwn-function{
-    display: inline-block;
 }
 
 

@@ -134,9 +134,9 @@
 
                     <!-- dropdown per eliminare il messaggio -->
                     <div class="dropdown">
-                        <i class="fa-solid fa-chevron-down"></i>
+                        <i class="fa-solid fa-chevron-down" @click="showDropdown()"></i>
 
-                        <div class="drpdwn-function">
+                        <div class="drpdwn-function" v-show="dropdown">
                             <span @click="deleteMessage(activeChat, indice)">Elimina messaggio</span>
                         </div>
                     </div>
