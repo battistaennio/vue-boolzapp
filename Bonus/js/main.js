@@ -217,7 +217,7 @@ createApp({
 
         //funzione che recupera una frase random
         randomReply() {
-            this.lastAccess = "sta scrivendo...";
+            this.lastAccess = "Sta scrivendo...";
             //recupero API
             axios.get("https://flynn.boolean.careers/exercises/api/random/sentence")
             .then(risposta => {
@@ -246,8 +246,8 @@ createApp({
         },
 
         //funzione ora invio ultimo messaggio
-        messageHour(dateTime) {
-            return dateTime.split(' ')[1].slice(0, 5);
+        messageHour(date) {
+            return date.split(' ')[1].slice(0, 5);
         },
 
     },

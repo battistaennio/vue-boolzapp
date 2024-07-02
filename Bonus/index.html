@@ -33,17 +33,17 @@
             <!-- card Utente principale -->
             <div class="card main-user-container">
 
-                <div class="txt-left">
+                <div class="box-left">
                     <div class="circle-img">
                         <img src="img/Pablo.jpg" alt="User profile pic">
                     </div>
 
-                    <div class="text">
+                    <div class="box-text">
                         <h4>Eugenio</h4>
                     </div>
                 </div>
 
-                <div class="icons txt-right">
+                <div class="icons box-right">
                     <i class="fa-solid fa-circle-notch"></i>
                     <i class="fa-solid fa-message"></i>
                     <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -53,14 +53,14 @@
 
             <!-- card alert notifiche -->
             <div id="notifications" class="card">
-                <div class="txt-left">
+                <div class="box-left">
                     <div class="circle-img">
                         <i class="fa-solid fa-bell-slash"></i>
                     </div>
 
-                    <div class="text">
+                    <div class="box-text">
                         <h4>Ricevi notifiche di nuovi messaggi</h4>
-                        <span>Attiva notifiche desktop</span>
+                        <a href="#">Attiva notifiche desktop</a>
                     </div>
                 </div>
                 
@@ -77,18 +77,18 @@
                 <li v-for="(person, index) in searchArray" :key="person" @click="setActiveChat(index)">
                     <div class="card person" :class="activeChat === contacts.indexOf(person) ?'active-chat' : ''">
 
-                        <div class="txt-left">
+                        <div class="box-left">
                             <div class="circle-img">
                                 <img :src="person.avatar" :alt="person.name">
                             </div>
 
-                            <div class="text">
+                            <div class="box-text">
                                 <h4>{{person.name}}</h4>
                                 <span>{{lastMessage(person)}}</span>
                             </div>
                         </div>
 
-                        <div class="txt-right">
+                        <div class="box-right">
                             <span>{{messageHour(person.messages[person.messages.length - 1].date)}}</span>
                         </div>
         
@@ -103,18 +103,18 @@
             <!-- utente chat -->
             <div class="card main-user-container">
 
-                <div class="txt-left">
+                <div class="box-left">
                     <div class="circle-img">
                         <img :src="contacts[activeChat].avatar" alt="">
                     </div>
 
-                    <div class="text">
+                    <div class="box-text">
                         <h4>{{contacts[activeChat].name}}</h4>
                         <span>{{ lastAccess }}</span>
                     </div>
                 </div>
 
-                <div class="icons txt-right">
+                <div class="icons box-right">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <i class="fa-solid fa-paperclip"></i>
                     <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -145,7 +145,7 @@
                 <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage()">
 
                 <i v-if="newMessage.length === 0" class="fa-solid fa-microphone"></i>
-                <i v-else @click="sendMessage()" style="cursor: pointer;" class="fa-solid fa-paper-plane"></i>
+                <i v-else @click="sendMessage()" class="fa-solid fa-paper-plane"></i>
 
             </div>
 
