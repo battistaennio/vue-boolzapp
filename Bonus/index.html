@@ -27,7 +27,7 @@
     <!-- container app -->
     <div id="container">
 
-        <!-- container lista contatti -->
+        <!-- CONTAINER LISTA CONTATTI (parte di sinistra) -->
         <div id="contact-list">
 
             <!-- card Utente principale -->
@@ -78,16 +78,17 @@
                     <div class="card person" :class="activeChat === contacts.indexOf(person) ?'active-chat' : ''">
 
                         <div class="box-left">
+                            <!-- immagine profilo rotonda -->
                             <div class="circle-img">
                                 <img :src="person.avatar" :alt="person.name">
                             </div>
-
+                            <!-- nome e anteprima ultimo messaggio -->
                             <div class="box-text">
                                 <h4>{{person.name}}</h4>
                                 <span>{{lastMessage(person)}}</span>
                             </div>
                         </div>
-
+                        <!-- ora invio ultimo messaggio -->
                         <div class="box-right">
                             <span>{{messageHour(person.messages[person.messages.length - 1].date)}}</span>
                         </div>
@@ -98,22 +99,23 @@
 
         </div>
 
-        <!-- container chat -->
+        <!-- CONTAINER CHAT (parte di destra) -->
         <div id="chat">
             <!-- utente chat -->
             <div class="card main-user-container">
 
                 <div class="box-left">
+                    <!-- immagine profilo -->
                     <div class="circle-img">
                         <img :src="contacts[activeChat].avatar" alt="">
                     </div>
-
+                    <!-- nome e anteprima ultimo messaggio -->
                     <div class="box-text">
                         <h4>{{contacts[activeChat].name}}</h4>
                         <span>{{ lastAccess }}</span>
                     </div>
                 </div>
-
+                <!-- icone opzioni -->
                 <div class="icons box-right">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <i class="fa-solid fa-paperclip"></i>
@@ -121,13 +123,16 @@
                 </div>
 
             </div>
-
+            <!-- MESSAGGI -->
             <div id="messages">
-
+                <!-- container messaggi -->
                 <div class="mssg" v-for="(chat, indice) in contacts[activeChat].messages" :class="chat.status === 'sent' ? 'mssg-sent' : 'mssg-received'">
+                    <!-- testo del messaggio -->
                     <span> {{ chat.message }} </span>
+                    <!-- ora invio messaggio -->
                     <span class="hour">{{messageHour(chat.date)}}</span>
 
+                    <!-- dropdown per eliminare il messaggio -->
                     <div class="dropdown">
                         <i class="fa-solid fa-chevron-down"></i>
 
@@ -139,11 +144,12 @@
 
             </div>
 
+            <!-- INVIO NUOVO MESSAGGIO -->
             <div id="write-message">
                 <i class="fa-regular fa-face-smile"></i>
-
+                <!-- input per scrivere il messaggio -->
                 <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage()">
-
+                <!-- icon microfono o aeroplano -->
                 <i v-if="newMessage.length === 0" class="fa-solid fa-microphone"></i>
                 <i v-else @click="sendMessage()" class="fa-solid fa-paper-plane"></i>
 
