@@ -61,12 +61,13 @@
                 </div>
                 
             </div>
-
+            <!-- input per ricerca chat -->
             <div id="search-input">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchChatInput" @input="searchChat()">
             </div>
 
+            <!-- lista chat -->
             <ul>
                 <li v-for="(person, index) in searchArray" :key="person" @click="setActiveChat(index)">
                     <div class="card person" :class="activeChat === contacts.indexOf(person) ?'active-chat' : ''">
@@ -115,7 +116,7 @@
                 </div>
 
             </div>
-
+            <!-- messaggi chat -->
             <div id="messages">
 
                 <div v-for="(chat, indice) in contacts[activeChat].messages" :class="chat.status === 'sent' ? 'mssg-sent' : 'mssg-received'">
@@ -124,7 +125,7 @@
                 </div>
 
             </div>
-
+            <!-- input per scrivere un nuovo messaggio -->
             <div id="write-message">
                 <i class="fa-regular fa-face-smile"></i>
 
