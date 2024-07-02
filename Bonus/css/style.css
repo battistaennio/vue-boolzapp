@@ -102,12 +102,6 @@ ul{
     border-radius: 50%;
 }
 
-.circle-img i{
-    font-size: 20px;
-    margin: 14px;
-    color: #8edafc;
-}
-
 .box-left{
     display: flex;
     align-items: center;
@@ -156,6 +150,20 @@ ul .card h4{
     /* card "speciali" */
 #notifications{
     background-color: #8edafc;
+}
+
+#notifications .circle-img{
+    position: relative;
+}
+
+#notifications .circle-img i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    font-size: 25px;
+    color: #8edafc;
+    cursor: auto;
 }
 
 #notifications span{
